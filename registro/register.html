@@ -5,9 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario Hombre o Mujer</title>
     <link rel="stylesheet" href="css/styless.css">
+    <script>
+        let currentImageIndex = 0;
+        const images = [
+            'https://source.unsplash.com/1600x900/?church,faith',
+            'https://source.unsplash.com/1600x900/?nature,faith',
+            'https://source.unsplash.com/1600x900/?sky,faith'
+        ];
+
+        function changeBackgroundImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            document.body.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('${images[currentImageIndex]}')`;
+        }
+
+        setInterval(changeBackgroundImage, 3000);
+    </script>
 </head>
 <body>
-    <div class="container">
+    <div class="login-container">
         <h1>Formulario Inscripción Socio</h1>
         <label for="menuGenero">Seleccione su género:</label>
         <select id="menuGenero" onchange="location = this.value;">
