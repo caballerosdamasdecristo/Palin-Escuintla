@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Hombre o Mujer</title>
+    <script>
+        function mostrarFormulario(genero) {
+            document.getElementById('formHombre').style.display = genero === 'hombre' ? 'block' : 'none';
+            document.getElementById('formMujer').style.display = genero === 'mujer' ? 'block' : 'none';
+        }
+
+        function cargarAnios() {
+            const anioActual = new Date().getFullYear();
+            const selectAnios = document.getElementById('anios');
+
+            for (let anio = 2000; anio <= anioActual; anio++) {
+                const opcion = document.createElement('option');
+                opcion.value = anio;
+                opcion.textContent = anio;
+                selectAnios.appendChild(opcion);
+            }
+        }
+
+        window.onload = cargarAnios;
+    </script>
+</head>
+<body>
+    <h1>Formulario Inscripcion Socio</h1>
+    <label for="menuGenero">Seleccione su género:</label>
+    <select id="menuGenero" onchange="mostrarFormulario(this.value)">
+        <option value="">-- Seleccione --</option>
+        <option value="hombre">Hombre</option>
+        <option value="mujer">Mujer</option>
+    </select>
+
+    <!-- Formulario Socio Devoto -->
+    <form id="formHombre" style="display: none; margin-top: 20px;">
+        <h2>Formulario Socio Devoto</h2>
+        <label for="primerNombreH">Primer Nombre:</label>
+        <input type="text" id="primerNombreH" required><br>
+
+        <label for="segundoNombreH">Segundo Nombre:</label>
+        <input type="text" id="segundoNombreH"><br>
+
+        <label for="primerApellidoH">Primer Apellido:</label>
+        <input type="text" id="primerApellidoH" required><br>
+
+        <label for="segundoApellidoH">Segundo Apellido:</label>
+        <input type="text" id="segundoApellidoH"><br>
+
+        <label for="direccionH">Dirección:</label>
+        <input type="text" id="direccionH" required><br>
+
+        <label for="telefonoH">Teléfono:</label>
+        <input type="tel" id="telefonoH" required><br>
+
+        <label for="dpiH">DPI:</label>
+        <input type="text" id="dpiH" required><br>
+
+        <label for="anios">Año de ingreso:</label>
+        <select id="anios" required></select><br>
+
+        <label for="fotoH">Subir Fotografía:</label>
+        <input type="file" id="fotoH" accept="image/*" capture="camera"><br>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    <!-- Formulario Socia Devota -->
+    <form id="formMujer" style="display: none; margin-top: 20px;">
+        <h2>Formulario Socia Devota</h2>
+        <label for="primerNombreM">Primer Nombre:</label>
+        <input type="text" id="primerNombreM" required><br>
+
+        <label for="segundoNombreM">Segundo Nombre:</label>
+        <input type="text" id="segundoNombreM"><br>
+
+        <label for="primerApellidoM">Primer Apellido:</label>
+        <input type="text" id="primerApellidoM" required><br>
+
+        <label for="segundoApellidoM">Segundo Apellido:</label>
+        <input type="text" id="segundoApellidoM"><br>
+
+        <label for="apellidoCasada">Apellido de Casada:</label>
+        <input type="text" id="apellidoCasada"><br>
+
+        <label for="direccionM">Dirección:</label>
+        <input type="text" id="direccionM" required><br>
+
+        <label for="telefonoM">Teléfono:</label>
+        <input type="tel" id="telefonoM" required><br>
+
+        <label for="dpiM">DPI:</label>
+        <input type="text" id="dpiM" required><br>
+
+        <label for="anios">Año de ingreso:</label>
+        <select id="anios" required></select><br>
+
+        <label for="fotoM">Subir Fotografía:</label>
+        <input type="file" id="fotoM" accept="image/*" capture="camera"><br>
+
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>
