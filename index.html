@@ -14,9 +14,49 @@
       align-items: center;
       height: 100vh;
       background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                  url('https://source.unsplash.com/1600x900/?church,faith') no-repeat center center;
+                  url('/img/') no-repeat center center;
       background-size: cover;
       color: white;
+      overflow: hidden;
+      color: white;
+    }
+
+    /* Slider */
+    .slider {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .slides {
+      display: flex;
+      width: 500%;
+      height: 100%;
+      animation: slideAnimation 20s infinite;
+    }
+
+    .slide {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+    }
+
+    @keyframes slideAnimation {
+      0% { transform: translateX(0); }
+      20% { transform: translateX(0); }
+      25% { transform: translateX(-100%); }
+      45% { transform: translateX(-100%); }
+      50% { transform: translateX(-200%); }
+      70% { transform: translateX(-200%); }
+      75% { transform: translateX(-300%); }
+      95% { transform: translateX(-300%); }
+      100% { transform: translateX(-400%); }
+    }
+
     }
 
     /* Contenedor del formulario */
@@ -82,6 +122,17 @@
   </style>
 </head>
 <body>
+   <!-- Slider de fondo -->
+  <div class="slider">
+    <div class="slides">
+      <div class="slide" style="background-image: url('img/imagen1.jpg');"></div>
+      <div class="slide" style="background-image: url('img/imagen2.jpg');"></div>
+      <div class="slide" style="background-image: url('img/imagen3.jpg');"></div>
+      <div class="slide" style="background-image: url('img/imagen4.jpg');"></div>
+      <div class="slide" style="background-image: url('img/imagen5.jpg');"></div>
+    </div>
+  </div>
+  
   <!-- Contenedor principal -->
   <div class="login-container">
     <h1>Inicio de Sesión</h1>
