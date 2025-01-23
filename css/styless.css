@@ -16,7 +16,7 @@
     /* Contenedor del formulario */
     .login-container {
       background: rgba(255, 255, 255, 0.9);
-      padding: 20px;
+      padding: 50px;
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
       text-align: center;
@@ -43,7 +43,7 @@
 
     /* Botón de inicio de sesión */
     .login-container button {
-      width: 100%;
+      width: 105%;
       padding: 10px;
       background-color: #4CAF50;
       border: none;
