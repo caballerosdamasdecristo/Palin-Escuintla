@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Hombre</title>
+    <link rel="stylesheet" href="css/styles1.css">
+    <script>
+        function cargarAnios() {
+            const anioActual = new Date().getFullYear();
+            const selectAnios = document.getElementById('anios');
+
+            for (let anio = 2000; anio <= anioActual; anio++) {
+                const opcion = document.createElement('option');
+                opcion.value = anio;
+                opcion.textContent = anio;
+                selectAnios.appendChild(opcion);
+            }
+        }
+
+        window.onload = cargarAnios;
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Formulario Socio Devoto</h2>
+        <form>
+            <label for="primerNombreH">Primer Nombre:</label>
+            <input type="text" id="primerNombreH" required><br>
+
+            <label for="segundoNombreH">Segundo Nombre:</label>
+            <input type="text" id="segundoNombreH"><br>
+
+            <label for="primerApellidoH">Primer Apellido:</label>
+            <input type="text" id="primerApellidoH" required><br>
+
+            <label for="segundoApellidoH">Segundo Apellido:</label>
+            <input type="text" id="segundoApellidoH"><br>
+
+            <label for="direccionH">Dirección:</label>
+            <input type="text" id="direccionH" required><br>
+
+            <label for="telefonoH">Teléfono:</label>
+            <input type="tel" id="telefonoH" required><br>
+
+            <label for="dpiH">DPI:</label>
+            <input type="text" id="dpiH" required><br>
+
+            <label for="anios">Año de ingreso:</label>
+            <select id="anios" required></select><br>
+
+            <label for="fotoH">Subir Fotografía:</label>
+            <input type="file" id="fotoH" accept="image/*" capture="camera"><br>
+
+            <button type="submit">Enviar</button>
+        </form>
+        <button onclick="window.location.href='index.html'">Regresar</button>
+    </div>
+</body>
+</html>
