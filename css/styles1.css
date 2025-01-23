@@ -1,3 +1,4 @@
+/* Estilo general */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -5,34 +6,42 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f0f0f0;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+              url('img/imagen1.jpg') no-repeat center center;
+  background-size: cover;
+  color: white;
 }
 
-.container {
-  background: white;
+/* Contenedor del formulario */
+.login-container {
+  background: rgba(255, 255, 255, 0.9);
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   text-align: center;
   width: 90%;
-  max-width: 600px; /* Aumentamos el max-width para pantallas más grandes */
-  margin: 20px; /* Añadimos margen para evitar que el contenido toque los bordes en pantallas pequeñas */
+  max-width: 400px;
 }
 
-h1 {
+/* Título */
+.login-container h1 {
   font-size: 24px;
   margin-bottom: 20px;
+  color: #333;
 }
 
-input, select {
+/* Campos de entrada */
+.login-container input, .login-container select {
   width: 100%;
   padding: 10px;
   margin: 10px 0;
   border: 1px solid #ccc;
   border-radius: 5px;
+  font-size: 16px;
 }
 
-button {
+/* Botón de inicio de sesión */
+.login-container button {
   width: 100%;
   padding: 10px;
   background-color: #4CAF50;
@@ -41,32 +50,44 @@ button {
   font-size: 18px;
   color: white;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-button:hover {
+.login-container button:hover {
   background-color: #45a049;
 }
 
+/* Pie de página */
 .footer {
   margin-top: 20px;
   font-size: 14px;
+  color: #666;
+}
+
+.footer a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
 }
 
 /* Media queries para mejorar la responsividad */
 @media (min-width: 768px) {
-  .container {
+  .login-container {
     padding: 40px;
   }
 
-  h1 {
+  .login-container h1 {
     font-size: 28px;
   }
 
-  input, select {
+  .login-container input, .login-container select {
     padding: 15px;
   }
 
-  button {
+  .login-container button {
     padding: 15px;
     font-size: 20px;
   }
