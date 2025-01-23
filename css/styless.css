@@ -1,1 +1,76 @@
+<style>
+    /* Estilo general */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                  url('https://source.unsplash.com/1600x900/?church,faith') no-repeat center center;
+      background-size: cover;
+      color: white;
+    }
 
+    /* Contenedor del formulario */
+    .login-container {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      width: 90%; /* Ajusta el ancho */
+      max-width: 350px; /* Tamaño máximo */
+    }
+
+    /* Título */
+    .login-container h1 {
+      font-size: 22px;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    /* Campos de entrada */
+    .login-container input {
+      width: 100%;
+      padding: 8px; /* Reduce el padding */
+      margin: 8px 0; /* Reduce el margen */
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px; /* Reduce el tamaño de texto */
+    }
+
+    /* Botón de inicio de sesión */
+    .login-container button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px; /* Reduce el tamaño de texto */
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .login-container button:hover {
+      background-color: #45a049;
+    }
+
+    /* Pie de página */
+    .footer {
+      margin-top: 15px;
+      font-size: 12px; /* Ajusta el tamaño de texto */
+      color: #666;
+    }
+
+    .footer a {
+      color: #4CAF50;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
