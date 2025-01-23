@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Mujer</title>
+    <link rel="stylesheet" href="css/styles1.css">
+    <script>
+        function cargarAnios() {
+            const anioActual = new Date().getFullYear();
+            const selectAnios = document.getElementById('anios');
+
+            for (let anio = 2000; anio <= anioActual; anio++) {
+                const opcion = document.createElement('option');
+                opcion.value = anio;
+                opcion.textContent = anio;
+                selectAnios.appendChild(opcion);
+            }
+        }
+
+        window.onload = cargarAnios;
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Formulario Socia Devota</h2>
+        <form>
+            <label for="primerNombreM">Primer Nombre:</label>
+            <input type="text" id="primerNombreM" required><br>
+
+            <label for="segundoNombreM">Segundo Nombre:</label>
+            <input type="text" id="segundoNombreM"><br>
+
+            <label for="primerApellidoM">Primer Apellido:</label>
+            <input type="text" id="primerApellidoM" required><br>
+
+            <label for="segundoApellidoM">Segundo Apellido:</label>
+            <input type="text" id="segundoApellidoM"><br>
+
+            <label for="apellidoCasada">Apellido de Casada:</label>
+            <input type="text" id="apellidoCasada"><br>
+
+            <label for="direccionM">Dirección:</label>
+            <input type="text" id="direccionM" required><br>
+
+            <label for="telefonoM">Teléfono:</label>
+            <input type="tel" id="telefonoM" required><br>
+
+            <label for="dpiM">DPI:</label>
+            <input type="text" id="dpiM" required><br>
+
+            <label for="anios">Año de ingreso:</label>
+            <select id="anios" required></select><br>
+
+            <label for="fotoM">Subir Fotografía:</label>
+            <input type="file" id="fotoM" accept="image/*" capture="camera"><br>
+
+            <button type="submit">Enviar</button>
+        </form>
+        <button onclick="window.location.href='index.html'">Regresar</button>
+    </div>
+</body>
+</html>
