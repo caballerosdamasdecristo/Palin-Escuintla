@@ -92,3 +92,98 @@ body {
     font-size: 20px;
   }
 }
+/* empieza css del html de register.html */
+/* Estilo general */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+              url('https://source.unsplash.com/1600x900/?church,faith') no-repeat center center;
+  background-size: cover;
+  color: white;
+}
+
+/* Contenedor del formulario */
+.login-container {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+}
+
+/* Título */
+.login-container h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Campos de entrada */
+.login-container input, .login-container select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Botón de inicio de sesión */
+.login-container button {
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-container button:hover {
+  background-color: #45a049;
+}
+
+/* Pie de página */
+.footer {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #666;
+}
+
+.footer a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* Media queries para mejorar la responsividad */
+@media (min-width: 768px) {
+  .login-container {
+    padding: 40px;
+  }
+
+  .login-container h1 {
+    font-size: 28px;
+  }
+
+  .login-container input, .login-container select {
+    padding: 15px;
+  }
+
+  .login-container button {
+    padding: 15px;
+    font-size: 20px;
+  }
+}
