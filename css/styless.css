@@ -16,29 +16,29 @@
     /* Contenedor del formulario */
     .login-container {
       background: rgba(255, 255, 255, 0.9);
-      padding: 40px;
+      padding: 20px;
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
       text-align: center;
-      width: 90%; /* Ajusta el ancho */
-      max-width: 350px; /* Tamaño máximo */
+      width: 90%;
+      max-width: 400px;
     }
 
     /* Título */
     .login-container h1 {
-      font-size: 22px;
-      margin-bottom: 15px;
+      font-size: 24px;
+      margin-bottom: 20px;
       color: #333;
     }
 
     /* Campos de entrada */
     .login-container input {
       width: 100%;
-      padding: 8px; /* Reduce el padding */
-      margin: 8px 0; /* Reduce el margen */
+      padding: 40px;
+      margin: 10px 0;
       border: 1px solid #ccc;
       border-radius: 5px;
-      font-size: 14px; /* Reduce el tamaño de texto */
+      font-size: 16px;
     }
 
     /* Botón de inicio de sesión */
@@ -48,7 +48,7 @@
       background-color: #4CAF50;
       border: none;
       border-radius: 5px;
-      font-size: 16px; /* Reduce el tamaño de texto */
+      font-size: 18px;
       color: white;
       cursor: pointer;
       transition: background-color 0.3s ease;
@@ -60,8 +60,8 @@
 
     /* Pie de página */
     .footer {
-      margin-top: 15px;
-      font-size: 12px; /* Ajusta el tamaño de texto */
+      margin-top: 20px;
+      font-size: 14px;
       color: #666;
     }
 
