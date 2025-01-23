@@ -42,7 +42,7 @@ body {
 
 /* Botón de inicio de sesión */
 .login-container button {
-  width: 105%;
+  width: 100%;
   padding: 10px;
   background-color: #4CAF50;
   border: none;
