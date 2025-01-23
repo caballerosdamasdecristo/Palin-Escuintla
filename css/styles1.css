@@ -4,7 +4,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #f0f0f0;
 }
 
@@ -15,7 +15,8 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
   width: 90%;
-  max-width: 400px;
+  max-width: 600px; /* Aumentamos el max-width para pantallas más grandes */
+  margin: 20px; /* Añadimos margen para evitar que el contenido toque los bordes en pantallas pequeñas */
 }
 
 h1 {
@@ -49,4 +50,24 @@ button:hover {
 .footer {
   margin-top: 20px;
   font-size: 14px;
+}
+
+/* Media queries para mejorar la responsividad */
+@media (min-width: 768px) {
+  .container {
+    padding: 40px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  input, select {
+    padding: 15px;
+  }
+
+  button {
+    padding: 15px;
+    font-size: 20px;
+  }
 }
