@@ -48,6 +48,8 @@
             const direccion = document.getElementById('direccionH').value;
             const telefono = document.getElementById('telefonoH').value;
             const dpi = document.getElementById('dpiH').value;
+            const hombroCarga = document.getElementById('hombroCarga').value;
+            const anioIngreso = document.getElementById('anios').value;
 
             if (!nombrePattern.test(primerNombre)) {
                 alert('Caracteres inválidos en Primer Nombre');
@@ -91,6 +93,16 @@
             }
             if (!numeroPattern.test(dpi)) {
                 alert('Caracteres inválidos en DPI');
+                event.preventDefault();
+                return false;
+            }
+            if (hombroCarga === "") {
+                alert('Por favor, seleccione una opción válida para Hombro que Carga');
+                event.preventDefault();
+                return false;
+            }
+            if (anioIngreso === "") {
+                alert('Por favor, seleccione una opción válida para Año de ingreso');
                 event.preventDefault();
                 return false;
             }
@@ -140,12 +152,15 @@
 
                     <label for="hombroCarga" class="required">Hombro que Carga:</label>
                     <select id="hombroCarga" required>
+                        <option value="">Seleccione una opción</option>
                         <option value="izquierdo">Izquierdo</option>
                         <option value="derecho">Derecho</option>
                     </select><br>
 
                     <label for="anios" class="required">Año de ingreso:</label>
-                    <select id="anios" required></select><br>
+                    <select id="anios" required>
+                        <option value="">Seleccione una opción</option>
+                    </select><br>
 
                     <label for="fotoH">Subir Fotografía:</label>
                     <input type="file" id="fotoH" accept="image/*" capture="camera"><br>
