@@ -4,25 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario Hombre o Mujer</title>
-    <link rel="stylesheet" href="css/styles1.css">
-    <script>
-        let currentImageIndex = 0;
-        const images = [
-            'img/imagen1.jpg',
-            'img/imagen2.jpg',
-            'img/imagen3.jpg',
-            'img/imagen4.jpg',
-            'img/imagen5.jpg',
-            'img/imagen6.jpg'
-        ];
-
-        function changeBackgroundImage() {
-            currentImageIndex = (currentImageIndex + 1) % images.length;
-            document.body.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('${images[currentImageIndex]}')`;
-        }
-
-        setInterval(changeBackgroundImage, 3000);
-    </script>
 </head>
 <body>
     <div class="login-container">
