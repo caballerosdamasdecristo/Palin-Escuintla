@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -16,7 +16,8 @@
       <button type="submit">Iniciar Sesión</button>
     </form>
     <div class="footer">
-      <p>¿Olvidaste tu contraseña? <a href="registro/recuperar_contrasena.html">Recupérala aquí</a></p>
+      <p>¿Olvidaste tu contraseña? <a href="#">Recupérala aquí</a></p>
+      <p>¿No tienes cuenta? <a href="registro/register.html">Regístrate aquí</a></p>
       <p>© 2025 Página Caballeros Damas de Cristo</p>
     </div>
   </div>
@@ -26,7 +27,6 @@
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
     import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
-    import { getDatabase, ref, get, child } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
 
     // Your web app's Firebase configuration
     const firebaseConfig = {
@@ -43,38 +43,25 @@
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
-    const db = getDatabase(app);
 
     // Handle login form submission
     document.getElementById('login-form').addEventListener('submit', (e) => {
       e.preventDefault();
-      const alias = document.getElementById('usuario').value;
+      const email = document.getElementById('usuario').value;
       const password = document.getElementById('contrasena').value;
 
-      // Get email from alias
-      const dbRef = ref(db);
-      get(child(dbRef, `users/${alias}`)).then((snapshot) => {
-        if (snapshot.exists()) {
-          const email = snapshot.val().email;
-          signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-              // Signed in
-              const user = userCredential.user;
-              alert('Inicio de sesión exitoso');
-              // Redirect to menu.html
-              window.location.href = 'menu.html';
-            })
-            .catch((error) => {
-              const errorCode = error.code;
-              const errorMessage = error.message;
-              alert(`Error: ${errorMessage}`);
-            });
-        } else {
-          alert('Alias no encontrado');
-        }
-      }).catch((error) => {
-        alert(`Error: ${error.message}`);
-      });
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          alert('Inicio de sesión exitoso');
+          // Redirect or perform other actions
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          alert(`Error: ${errorMessage}`);
+        });
     });
   </script>
 </body>
