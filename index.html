@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Página de Inicio de Sesión</title>
   <link rel="stylesheet" href="css/styless.css"> <!-- Aquí enlazas el archivo CSS -->
+  <script src="https://www.google.com/recaptcha/enterprise.js?render="6Lcf_MEqAAAAAI-MkgP9rNyrwT5Ez6Ildzm1u73c"></script>
 </head>
 <body>
   <!-- Contenedor principal -->
@@ -13,7 +14,10 @@
     <form id="login-form">
       <input type="text" id="usuario" placeholder="Usuario" required>
       <input type="password" id="contrasena" placeholder="Contraseña" required>
-      <button type="submit">Iniciar Sesión</button>
+      <button class="g-recaptcha" 
+              data-sitekey="6Lcf_MEqAAAAAI-MkgP9rNyrwT5Ez6Ildzm1u73c" 
+              data-callback='onSubmit' 
+              data-action='submit'>Iniciar Sesión</button>
     </form>
     <div class="footer">
       <p>¿Olvidaste tu contraseña? <a href="registro/recuperar_contrasena.html">Recupérala aquí</a></p>
@@ -50,18 +54,28 @@
       const email = document.getElementById('usuario').value;
       const password = document.getElementById('contrasena').value;
 
-      signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          // Signed in
-          const user = userCredential.user;
-          alert('Inicio de sesión exitoso');
-          // Redirect or perform other actions
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          alert(`Error: ${errorMessage}`);
-        });
+      grecaptcha.enterprise.ready(async () => {
+        const token = await grecaptcha.enterprise.execute('6Lcf_MEqAAAAAI-MkgP9rNyrwT5Ez6Ildzm1u73c', {action: 'LOGIN'});
+        
+        if (!token) {
+          alert('Por favor, completa el captcha.');
+          return;
+        }
+
+        signInWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+            // Signed in
+            const user = userCredential.user;
+            alert('Inicio de sesión exitoso');
+            // Redirect to menu_opciones.html
+            window.location.href = 'menu_opciones.html';
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            alert(`Error: ${errorMessage}`);
+          });
+      });
     });
   </script>
 </body>
