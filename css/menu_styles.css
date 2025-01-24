@@ -1,0 +1,95 @@
+/* menu_styles.css */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+              url('https://source.unsplash.com/1600x900/?church,faith') no-repeat center center;
+  background-size: cover;
+  color: white;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  width: 90%;
+  max-width: 600px;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.list-group-item {
+  font-size: 18px;
+  transition: background-color 0.3s, color 0.3s;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+.list-group-item:hover {
+  background-color: #007BFF;
+  color: #fff;
+}
+
+#logout-button {
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+#logout-button:hover {
+  background-color: #45a049;
+}
+
+.dropdown-menu {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.dropdown-item {
+  color: #333;
+}
+
+.dropdown-item:hover {
+  background-color: #007BFF;
+  color: #fff;
+}
+
+/* Media queries para mejorar la responsividad */
+@media (min-width: 768px) {
+  .container {
+    padding: 40px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  .list-group-item {
+    padding: 15px;
+  }
+
+  #logout-button {
+    padding: 15px;
+    font-size: 20px;
+  }
+}
