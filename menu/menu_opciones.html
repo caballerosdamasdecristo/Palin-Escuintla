@@ -12,7 +12,13 @@
   <div class="container mt-5">
     <h1 class="text-center">Menú de Opciones</h1>
     <div class="list-group">
-      <a href="../registro/register.html" class="list-group-item list-group-item-action">Creación de Socio</a>
+      <div class="dropdown">
+        <a href="#" class="list-group-item list-group-item-action dropdown-toggle" id="creacionSocioDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Creación de Socio</a>
+        <div class="dropdown-menu" aria-labelledby="creacionSocioDropdown">
+          <a class="dropdown-item" href="../registro/hombre.html">Devoto Cargador</a>
+          <a class="dropdown-item" href="../registro/mujer.html">Devota Socia</a>
+        </div>
+      </div>
       <a href="actualizacion.html" class="list-group-item list-group-item-action">Actualización</a>
       <a href="pagos.html" class="list-group-item list-group-item-action">Pagos</a>
       <a href="administracion_roles.html" class="list-group-item list-group-item-action">Administración de Roles</a>
