@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario Hombre</title>
-    <link rel="stylesheet" href="css/styles1.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/styles_Socio.css">
     <script>
         function cargarAnios() {
             const anioActual = new Date().getFullYear();
@@ -18,13 +19,17 @@
             }
         }
 
+        function limpiarFormulario() {
+            document.getElementById('formulario-socio').reset();
+        }
+
         window.onload = cargarAnios;
     </script>
 </head>
 <body>
     <div class="container">
         <h2>Formulario Socio Devoto</h2>
-        <form>
+        <form id="formulario-socio" onsubmit="limpiarFormulario()">
             <label for="primerNombreH">Primer Nombre:</label>
             <input type="text" id="primerNombreH" required><br>
 
@@ -54,7 +59,12 @@
 
             <button type="submit">Enviar</button>
         </form>
-        <button onclick="window.location.href='register.html'">Regresar</button>
+        <button onclick="window.location.href='../menu/menu_opciones.html'">Regresar</button>
     </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
