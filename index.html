@@ -10,7 +10,7 @@
   <!-- Contenedor principal -->
   <div class="login-container">
     <h1>Inicio de Sesión</h1>
-    <form>
+    <form id="login-form">
       <input type="text" id="usuario" placeholder="Usuario" required>
       <input type="password" id="contrasena" placeholder="Contraseña" required>
       <button type="submit">Iniciar Sesión</button>
@@ -21,5 +21,48 @@
       <p>© 2025 Página Caballeros Damas de Cristo</p>
     </div>
   </div>
+
+  <!-- Firebase SDK -->
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyBSHQifVd2fqWJNPdMQJxLB_wtzBw2wsJI",
+      authDomain: "dbcdc-62a7b.firebaseapp.com",
+      databaseURL: "https://dbcdc-62a7b-default-rtdb.firebaseio.com",
+      projectId: "dbcdc-62a7b",
+      storageBucket: "dbcdc-62a7b.firebasestorage.app",
+      messagingSenderId: "523898093045",
+      appId: "1:523898093045:web:04dd818d3a44790edd74bc",
+      measurementId: "G-QL5HKLGG03"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // Handle login form submission
+    document.getElementById('login-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('usuario').value;
+      const password = document.getElementById('contrasena').value;
+
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          alert('Inicio de sesión exitoso');
+          // Redirect or perform other actions
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          alert(`Error: ${errorMessage}`);
+        });
+    });
+  </script>
 </body>
 </html>
