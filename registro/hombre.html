@@ -34,6 +34,70 @@
             document.getElementById('formulario-socio').reset();
         }
 
+        function validarFormulario(event) {
+            const nombrePattern = /^[A-Za-z]+$/;
+            const direccionPattern = /^[A-Za-z0-9,-]+$/;
+            const numeroPattern = /^[0-9]+$/;
+
+            const primerNombre = document.getElementById('primerNombreH').value;
+            const segundoNombre = document.getElementById('segundoNombreH').value;
+            const tercerNombre = document.getElementById('tercerNombreH').value;
+            const primerApellido = document.getElementById('primerApellidoH').value;
+            const segundoApellido = document.getElementById('segundoApellidoH').value;
+            const lugarDomicilio = document.getElementById('lugarDomicilio').value;
+            const direccion = document.getElementById('direccionH').value;
+            const telefono = document.getElementById('telefonoH').value;
+            const dpi = document.getElementById('dpiH').value;
+
+            if (!nombrePattern.test(primerNombre)) {
+                alert('Caracteres inválidos en Primer Nombre');
+                event.preventDefault();
+                return false;
+            }
+            if (!nombrePattern.test(segundoNombre)) {
+                alert('Caracteres inválidos en Segundo Nombre');
+                event.preventDefault();
+                return false;
+            }
+            if (tercerNombre && !nombrePattern.test(tercerNombre)) {
+                alert('Caracteres inválidos en Tercer Nombre');
+                event.preventDefault();
+                return false;
+            }
+            if (!nombrePattern.test(primerApellido)) {
+                alert('Caracteres inválidos en Primer Apellido');
+                event.preventDefault();
+                return false;
+            }
+            if (segundoApellido && !nombrePattern.test(segundoApellido)) {
+                alert('Caracteres inválidos en Segundo Apellido');
+                event.preventDefault();
+                return false;
+            }
+            if (!direccionPattern.test(lugarDomicilio)) {
+                alert('Caracteres inválidos en Lugar Domicilio');
+                event.preventDefault();
+                return false;
+            }
+            if (!direccionPattern.test(direccion)) {
+                alert('Caracteres inválidos en Dirección');
+                event.preventDefault();
+                return false;
+            }
+            if (!numeroPattern.test(telefono)) {
+                alert('Caracteres inválidos en Teléfono');
+                event.preventDefault();
+                return false;
+            }
+            if (!numeroPattern.test(dpi)) {
+                alert('Caracteres inválidos en DPI');
+                event.preventDefault();
+                return false;
+            }
+
+            return true;
+        }
+
         window.onload = cargarAnios;
     </script>
 </head>
@@ -42,7 +106,7 @@
         <div class="row">
             <div class="col-md-8 offset-md-2">
                 <h2>Formulario Socio Devoto</h2>
-                <form id="formulario-socio" onsubmit="limpiarFormulario()">
+                <form id="formulario-socio" onsubmit="return validarFormulario(event)">
                     <label for="primerNombreH" class="required">Primer Nombre:</label>
                     <input type="text" id="primerNombreH" maxlength="15" required><br>
 
