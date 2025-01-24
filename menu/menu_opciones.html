@@ -4,20 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Menú de Opciones</title>
-  <link rel="stylesheet" href="../css/stylesmenu.css"> <!-- Aquí enlazas el archivo CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/menu_styles.css"> <!-- Aquí enlazas tu archivo CSS personalizado -->
 </head>
 <body>
   <!-- Contenedor principal -->
-  <div class="menu-container">
-    <h1>Menú de Opciones</h1>
-    <ul class="menu-list">
-      <li><a href="creacion_socio.html">Creación de Socio</a></li>
-      <li><a href="actualizacion.html">Actualización</a></li>
-      <li><a href="pagos.html">Pagos</a></li>
-      <li><a href="administracion_roles.html">Administración de Roles</a></li>
-    </ul>
+  <div class="container mt-5">
+    <h1 class="text-center">Menú de Opciones</h1>
+    <div class="list-group">
+      <a href="creacion_socio.html" class="list-group-item list-group-item-action">Creación de Socio</a>
+      <a href="actualizacion.html" class="list-group-item list-group-item-action">Actualización</a>
+      <a href="pagos.html" class="list-group-item list-group-item-action">Pagos</a>
+      <a href="administracion_roles.html" class="list-group-item list-group-item-action">Administración de Roles</a>
+    </div>
   </div>
 
-  <!-- Aquí puedes agregar más contenido o scripts si es necesario -->
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
