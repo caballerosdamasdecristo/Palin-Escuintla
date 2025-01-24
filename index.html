@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -54,7 +54,8 @@
           // Signed in
           const user = userCredential.user;
           alert('Inicio de sesión exitoso');
-          // Redirect or perform other actions
+          // Redirect to menu_opciones.html
+          window.location.href = 'menu_opciones.html';
         })
         .catch((error) => {
           const errorCode = error.code;
