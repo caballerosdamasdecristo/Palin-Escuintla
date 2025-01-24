@@ -12,12 +12,10 @@
   <div class="container mt-5">
     <h1 class="text-center">Menú de Opciones</h1>
     <div class="list-group">
-      <div class="dropdown">
-        <a href="#" class="list-group-item list-group-item-action dropdown-toggle" id="creacionSocioDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Creación de Socio</a>
-        <div class="dropdown-menu" aria-labelledby="creacionSocioDropdown">
-          <a class="dropdown-item" href="../registro/hombre.html">Devoto Socio</a>
-          <a class="dropdown-item" href="../registro/mujer.html">Devota Socia</a>
-        </div>
+      <a href="#" class="list-group-item list-group-item-action" id="creacion-socio">Creación de Socio</a>
+      <div id="submenu" class="list-group ml-3" style="display: none;">
+        <a href="registro/hombre.html" class="list-group-item list-group-item-action">Hombre</a>
+        <a href="registro/mujer.html" class="list-group-item list-group-item-action">Mujer</a>
       </div>
       <a href="actualizacion.html" class="list-group-item list-group-item-action">Actualización</a>
       <a href="pagos.html" class="list-group-item list-group-item-action">Pagos</a>
@@ -83,6 +81,18 @@
     };
 
     inactivityTime();
+  </script>
+
+  <!-- JavaScript para el submenú -->
+  <script>
+    document.getElementById('creacion-socio').addEventListener('click', function() {
+      var submenu = document.getElementById('submenu');
+      if (submenu.style.display === 'none') {
+        submenu.style.display = 'block';
+      } else {
+        submenu.style.display = 'none';
+      }
+    });
   </script>
 
   <!-- Bootstrap JS -->
