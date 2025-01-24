@@ -28,38 +28,42 @@
 </head>
 <body>
     <div class="container">
-        <h2>Formulario Socio Devoto</h2>
-        <form id="formulario-socio" onsubmit="limpiarFormulario()">
-            <label for="primerNombreH">Primer Nombre:</label>
-            <input type="text" id="primerNombreH" required><br>
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h2>Formulario Socio Devoto</h2>
+                <form id="formulario-socio" onsubmit="limpiarFormulario()">
+                    <label for="primerNombreH">Primer Nombre:</label>
+                    <input type="text" id="primerNombreH" required><br>
 
-            <label for="segundoNombreH">Segundo Nombre:</label>
-            <input type="text" id="segundoNombreH"><br>
+                    <label for="segundoNombreH">Segundo Nombre:</label>
+                    <input type="text" id="segundoNombreH"><br>
 
-            <label for="primerApellidoH">Primer Apellido:</label>
-            <input type="text" id="primerApellidoH" required><br>
+                    <label for="primerApellidoH">Primer Apellido:</label>
+                    <input type="text" id="primerApellidoH" required><br>
 
-            <label for="segundoApellidoH">Segundo Apellido:</label>
-            <input type="text" id="segundoApellidoH"><br>
+                    <label for="segundoApellidoH">Segundo Apellido:</label>
+                    <input type="text" id="segundoApellidoH"><br>
 
-            <label for="direccionH">Dirección:</label>
-            <input type="text" id="direccionH" required><br>
+                    <label for="direccionH">Dirección:</label>
+                    <input type="text" id="direccionH" required><br>
 
-            <label for="telefonoH">Teléfono:</label>
-            <input type="tel" id="telefonoH" required><br>
+                    <label for="telefonoH">Teléfono:</label>
+                    <input type="tel" id="telefonoH" required><br>
 
-            <label for="dpiH">DPI:</label>
-            <input type="text" id="dpiH" required><br>
+                    <label for="dpiH">DPI:</label>
+                    <input type="text" id="dpiH" required><br>
 
-            <label for="anios">Año de ingreso:</label>
-            <select id="anios" required></select><br>
+                    <label for="anios">Año de ingreso:</label>
+                    <select id="anios" required></select><br>
 
-            <label for="fotoH">Subir Fotografía:</label>
-            <input type="file" id="fotoH" accept="image/*" capture="camera"><br>
+                    <label for="fotoH">Subir Fotografía:</label>
+                    <input type="file" id="fotoH" accept="image/*" capture="camera"><br>
 
-            <button type="submit">Enviar</button>
-        </form>
-        <button onclick="window.location.href='../menu/menu_opciones.html'">Regresar</button>
+                    <button type="submit">Enviar</button>
+                </form>
+                <button onclick="window.location.href='../menu/menu_opciones.html'">Regresar</button>
+            </div>
+        </div>
     </div>
 
     <!-- Bootstrap JS -->
