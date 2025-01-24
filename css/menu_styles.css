@@ -52,62 +52,7 @@ h1 {
   color: white;
   cursor: pointer;
   transition: background-color 0.3s ease;
-}
-
-#logout-button:hover {
-  background-color: #45a049;
-}
-
-/* Media queries para mejorar la responsividad */
-@media (min-width: 768px) {
-  .container {
-    padding: 40px;
-  }
-
-  h1 {
-    font-size: 28px;
-  }
-
-  .list-group-item {
-    padding: 15px;
-  }
-
-  #logout-button {
-    padding: 15px;
-    font-size: 20px;
-  }
-}
-  font-size: 24px;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.list-group-item {
-  font-size: 18px;
-  transition: background-color 0.3s, color 0.3s;
-  background-color: rgba(255, 255, 255, 0.9);
-  color: #333;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin: 10px 0;
-  padding: 10px;
-}
-
-.list-group-item:hover {
-  background-color: #007BFF;
-  color: #fff;
-}
-
-#logout-button {
-  width: 100%;
-  padding: 10px;
-  background-color: #4CAF50;
-  border: none;
-  border-radius: 5px;
-  font-size: 18px;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  margin-top: 20px;
 }
 
 #logout-button:hover {
