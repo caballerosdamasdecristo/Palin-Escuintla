@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recuperar Contraseña</title>
+  <link rel="stylesheet" href="css/styless.css"> <!-- Aquí enlazas el archivo CSS -->
+</head>
+<body>
+  <!-- Contenedor principal -->
+  <div class="login-container">
+    <h1>Recuperar Contraseña</h1>
+    <form id="reset-form">
+      <input type="email" id="email" placeholder="Correo Electrónico" required>
+      <button type="submit">Enviar Enlace de Recuperación</button>
+    </form>
+    <div class="footer">
+      <p>¿Recordaste tu contraseña? <a href="index.html">Inicia Sesión</a></p>
+      <p>© 2025 Página Caballeros Damas de Cristo</p>
+    </div>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+    import { getAuth, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyBSHQifVd2fqWJNPdMQJxLB_wtzBw2wsJI",
+      authDomain: "dbcdc-62a7b.firebaseapp.com",
+      databaseURL: "https://dbcdc-62a7b-default-rtdb.firebaseio.com",
+      projectId: "dbcdc-62a7b",
+      storageBucket: "dbcdc-62a7b.firebasestorage.app",
+      messagingSenderId: "523898093045",
+      appId: "1:523898093045:web:04dd818d3a44790edd74bc",
+      measurementId: "G-QL5HKLGG03"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // Handle reset form submission
+    document.getElementById('reset-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+
+      sendPasswordResetEmail(auth, email)
+        .then(() => {
+          alert('Enlace de recuperación enviado. Revisa tu correo electrónico.');
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          alert(`Error: ${errorMessage}`);
+        });
+    });
+  </script>
+</body>
+</html>
