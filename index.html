@@ -3,21 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Página de Inicio de Sesión</title>
+  <title>Recuperar Contraseña</title>
   <link rel="stylesheet" href="css/styless.css"> <!-- Aquí enlazas el archivo CSS -->
 </head>
 <body>
   <!-- Contenedor principal -->
   <div class="login-container">
-    <h1>Inicio de Sesión</h1>
-    <form id="login-form">
-      <input type="text" id="usuario" placeholder="Usuario" required>
-      <input type="password" id="contrasena" placeholder="Contraseña" required>
-      <button type="submit">Iniciar Sesión</button>
+    <h1>Recuperar Contraseña</h1>
+    <form id="reset-form">
+      <input type="email" id="email" placeholder="Correo Electrónico" required>
+      <button type="submit">Enviar Enlace de Recuperación</button>
     </form>
     <div class="footer">
-      <p>¿Olvidaste tu contraseña? <a href="#">Recupérala aquí</a></p>
-      <p>¿No tienes cuenta? <a href="registro/register.html">Regístrate aquí</a></p>
+      <p>¿Recordaste tu contraseña? <a href="index.html">Inicia Sesión</a></p>
       <p>© 2025 Página Caballeros Damas de Cristo</p>
     </div>
   </div>
@@ -26,7 +24,7 @@
   <script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
-    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+    import { getAuth, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
 
     // Your web app's Firebase configuration
     const firebaseConfig = {
@@ -44,18 +42,14 @@
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
 
-    // Handle login form submission
-    document.getElementById('login-form').addEventListener('submit', (e) => {
+    // Handle reset form submission
+    document.getElementById('reset-form').addEventListener('submit', (e) => {
       e.preventDefault();
-      const email = document.getElementById('usuario').value;
-      const password = document.getElementById('contrasena').value;
+      const email = document.getElementById('email').value;
 
-      signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          // Signed in
-          const user = userCredential.user;
-          alert('Inicio de sesión exitoso');
-          // Redirect or perform other actions
+      sendPasswordResetEmail(auth, email)
+        .then(() => {
+          alert('Enlace de recuperación enviado. Revisa tu correo electrónico.');
         })
         .catch((error) => {
           const errorCode = error.code;
