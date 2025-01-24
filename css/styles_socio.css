@@ -1,0 +1,35 @@
+body {
+    background-image: url('ruta/a/tu/imagen.jpg'); /* Cambia esta ruta por la de tu imagen de fondo */
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 50px;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+form label {
+    width: 45%;
+}
+
+form input, form select {
+    width: 45%;
+}
+
+@media (max-width: 768px) {
+    form {
+        flex-direction: column;
+    }
+    form label, form input, form select {
+        width: 100%;
+    }
+}
