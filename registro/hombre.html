@@ -36,7 +36,6 @@
 
         function validarFormulario(event) {
             const nombrePattern = /^[A-Za-z]+$/;
-            const direccionPattern = /^[A-Za-z0-9,-]+$/;
             const numeroPattern = /^[0-9]+$/;
 
             const primerNombre = document.getElementById('primerNombreH').value;
@@ -73,16 +72,6 @@
             }
             if (segundoApellido && !nombrePattern.test(segundoApellido)) {
                 alert('Caracteres inválidos en Segundo Apellido');
-                event.preventDefault();
-                return false;
-            }
-            if (!direccionPattern.test(lugarDomicilio)) {
-                alert('Caracteres inválidos en Lugar Domicilio');
-                event.preventDefault();
-                return false;
-            }
-            if (!direccionPattern.test(direccion)) {
-                alert('Caracteres inválidos en Dirección');
                 event.preventDefault();
                 return false;
             }
@@ -136,10 +125,10 @@
                     <input type="text" id="segundoApellidoH" maxlength="15"><br>
 
                     <label for="lugarDomicilio" class="required">Lugar Domicilio:</label>
-                    <input type="text" id="lugarDomicilio" pattern="[A-Za-z0-9,-]+" required><br>
+                    <input type="text" id="lugarDomicilio" required><br>
 
                     <label for="direccionH" class="required">Dirección:</label>
-                    <input type="text" id="direccionH" pattern="[A-Za-z0-9,-]+" required><br>
+                    <input type="text" id="direccionH" required><br>
 
                     <label for="telefonoH" class="required">Teléfono:</label>
                     <input type="tel" id="telefonoH" maxlength="8" pattern="[0-9]{8}" required><br>
