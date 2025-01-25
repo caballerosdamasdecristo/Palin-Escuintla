@@ -17,11 +17,6 @@
             const anioActual = new Date().getFullYear();
             const selectAnios = document.getElementById('anios');
 
-            const opcionVacia = document.createElement('option');
-            opcionVacia.value = "";
-            opcionVacia.textContent = "";
-            selectAnios.appendChild(opcionVacia);
-
             for (let anio = 2000; anio <= anioActual; anio++) {
                 const opcion = document.createElement('option');
                 opcion.value = anio;
@@ -147,9 +142,7 @@
                     </select><br>
 
                     <label for="anios" class="required">Año de ingreso:</label>
-                    <select id="anios" required>
-                        <option value="">Seleccione una opción</option>
-                    </select><br>
+                    <select id="anios" required></select><br>
 
                     <label for="fotoH">Subir Fotografía:</label>
                     <input type="file" id="fotoH" accept="image/*" capture="camera"><br>
