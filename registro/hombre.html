@@ -17,6 +17,11 @@
             const anioActual = new Date().getFullYear();
             const selectAnios = document.getElementById('anios');
 
+            const opcionSeleccion = document.createElement('option');
+            opcionSeleccion.value = "";
+            opcionSeleccion.textContent = "Seleccione una opción";
+            selectAnios.appendChild(opcionSeleccion);
+
             for (let anio = 2000; anio <= anioActual; anio++) {
                 const opcion = document.createElement('option');
                 opcion.value = anio;
@@ -44,6 +49,7 @@
             const dpi = document.getElementById('dpiH').value;
             const hombroCarga = document.getElementById('hombroCarga').value;
             const anioIngreso = document.getElementById('anios').value;
+            const edad = document.getElementById('edadH').value;
 
             if (!nombrePattern.test(primerNombre)) {
                 alert('Caracteres inválidos en Primer Nombre');
@@ -90,6 +96,11 @@
                 event.preventDefault();
                 return false;
             }
+            if (!numeroPattern.test(edad) || edad.length !== 2) {
+                alert('Edad inválida. Debe ser un número de 2 dígitos.');
+                event.preventDefault();
+                return false;
+            }
 
             return true;
         }
@@ -129,7 +140,11 @@
                     <input type="tel" id="telefonoH" maxlength="8" pattern="[0-9]{8}" required><br>
 
                     <label for="dpiH" class="required">DPI:</label>
-                    <input type="text" id="dpiH" maxlength="25" pattern="[0-9]{1,25}" required><br>
+                    <select id="dpiH" required>
+                        <option value="">Seleccione una opción</option>
+                        <option value="niño">Niño</option>
+                        <option value="ingresar">Ingresar DPI</option>
+                    </select><br>
 
                     <label for="alturaH" class="required">Altura Hombro:</label>
                     <input type="text" id="alturaH" maxlength="4" pattern="1\.[0-9]{2}" required><br>
@@ -143,6 +158,9 @@
 
                     <label for="anios" class="required">Año de ingreso:</label>
                     <select id="anios" required></select><br>
+
+                    <label for="edadH" class="required">Edad:</label>
+                    <input type="text" id="edadH" maxlength="2" pattern="[0-9]{2}" required><br>
 
                     <label for="fotoH">Subir Fotografía:</label>
                     <input type="file" id="fotoH" accept="image/*" capture="camera"><br>
