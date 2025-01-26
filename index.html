@@ -12,7 +12,10 @@
     <h1>Inicio de Sesión</h1>
     <form id="login-form">
       <input type="text" id="usuario" placeholder="Usuario" required>
-      <input type="password" id="contrasena" placeholder="Contraseña" required>
+      <div class="password-container">
+        <input type="password" id="contrasena" placeholder="Contraseña" required>
+        <span id="toggle-password" style="cursor: pointer;">👁️</span>
+      </div>
       <button type="submit">Iniciar Sesión</button>
     </form>
     <div class="footer">
@@ -62,6 +65,13 @@
           const errorMessage = error.message;
           alert(`Error: ${errorMessage}`);
         });
+    });
+
+    // Toggle password visibility
+    document.getElementById('toggle-password').addEventListener('click', () => {
+      const passwordField = document.getElementById('contrasena');
+      const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+      passwordField.setAttribute('type', type);
     });
   </script>
 </body>
