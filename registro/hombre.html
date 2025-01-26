@@ -169,11 +169,25 @@
             }
         }
 
+        function mostrarTercerApellido() {
+            const generoSelect = document.getElementById('genero');
+            const tercerApellidoLabel = document.getElementById('tercerApellidoLabel');
+            const tercerApellidoInput = document.getElementById('tercerApellidoH');
+            if (generoSelect.value === 'femenino') {
+                tercerApellidoLabel.style.display = 'block';
+                tercerApellidoInput.style.display = 'block';
+            } else {
+                tercerApellidoLabel.style.display = 'none';
+                tercerApellidoInput.style.display = 'none';
+            }
+        }
+
         window.onload = function() {
             cargarAnios();
             document.getElementById('dpiHSelect').addEventListener('change', mostrarCampoDPI);
             document.getElementById('departamento').addEventListener('change', cargarMunicipios);
             document.getElementById('fechaNacimiento').addEventListener('change', calcularEdad);
+            document.getElementById('genero').addEventListener('change', mostrarTercerApellido);
             inactivityTime();
         };
 
