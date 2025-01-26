@@ -121,9 +121,29 @@
             }
         }
 
+        function mostrarApellidoCasada() {
+            const generoSelect = document.getElementById('genero');
+            const apellidoCasadaLabel = document.getElementById('apellidoCasadaLabel');
+            const apellidoCasadaInput = document.getElementById('apellidoCasada');
+            if (generoSelect.value === 'femenino') {
+                apellidoCasadaLabel.style.display = 'block';
+                apellidoCasadaInput.style.display = 'block';
+            } else {
+                apellidoCasadaLabel.style.display = 'none';
+                apellidoCasadaInput.style.display = 'none';
+            }
+        }
+
         window.onload = function() {
             cargarAnios();
             document.getElementById('dpiMSelect').addEventListener('change', mostrarCampoDPI);
+            document.getElementById('genero').addEventListener('change', mostrarApellidoCasada);
+
+            // Validación de acceso
+            if (!sessionStorage.getItem('validado')) {
+                alert('Acceso no autorizado');
+                window.location.href = '../index.html';
+            }
         };
     </script>
 </head>
@@ -156,8 +176,8 @@
                     <label for="segundoApellidoM">Segundo Apellido:</label>
                     <input type="text" id="segundoApellidoM" maxlength="15"><br>
 
-                    <label for="apellidoCasada">Apellido de Casada:</label>
-                    <input type="text" id="apellidoCasada" maxlength="15"><br>
+                    <label for="apellidoCasada" id="apellidoCasadaLabel" style="display: none;">Apellido de Casada:</label>
+                    <input type="text" id="apellidoCasada" maxlength="15" style="display: none;"><br>
 
                     <label for="direccionM" class="required">Dirección:</label>
                     <input type="text" id="direccionM" required><br>
@@ -184,7 +204,7 @@
                     <select id="hombroCargaM" required>
                         <option value="">Seleccione una opción</option>
                         <option value="izquierdo">Izquierdo</option>
-                        <option value="derecho">Derecho</option>
+                            <option value="derecho">Derecho</option>
                     </select><br>
 
                     <label for="anios" class="required">Año de ingreso:</label>
