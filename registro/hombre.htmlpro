@@ -169,10 +169,9 @@
             const hoy = new Date();
             let edad = hoy.getFullYear() - fechaNac.getFullYear();
             const mesDiferencia = hoy.getMonth() - fechaNac.getMonth();
-            if (mesDiferencia < 0 || (mesDiferencia === 0 && hoy.getDate() < fechaNac.getDate())) {
-                edad--;
+            if (mesDiferencia < 0 || (mesDiferencia === 0 && hoy.getDate() < fechaNac.getDate())) {edad--;
             }
-            document.getElementById('edadM').value = edad;
+            document.getElementById('edadM').value = edad; // Añadí esta línea para mostrar la edad calculada
         }
 
         window.onload = function() {
