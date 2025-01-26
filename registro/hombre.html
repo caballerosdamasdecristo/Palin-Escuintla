@@ -138,12 +138,6 @@
             cargarAnios();
             document.getElementById('dpiMSelect').addEventListener('change', mostrarCampoDPI);
             document.getElementById('genero').addEventListener('change', mostrarApellidoCasada);
-
-            // Validación de acceso
-            if (!sessionStorage.getItem('validado')) {
-                alert('Acceso no autorizado');
-                window.location.href = '../index.html';
-            }
         };
     </script>
 </head>
