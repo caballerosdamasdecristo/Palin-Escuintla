@@ -1,4 +1,5 @@
 /* styles_socio.css */
+/* styles_socio.css */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -67,4 +68,19 @@ button[type="button"] {
 
 button[type="button"]:hover {
     background-color: #0056b3;
+}
+
+.date-input {
+    width: 50px;
+}
+
+.fecha-nacimiento {
+    display: flex;
+    gap: 5px;
+}
+
+.fecha-edad {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
