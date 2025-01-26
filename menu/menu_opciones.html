@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menú de Opciones</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/menu_styles.css"> <!-- Aquí enlazas tu archivo CSS personalizado -->
+</head>
+<body>
+  <!-- Contenedor principal -->
+  <div class="container mt-5">
+    <h1 class="text-center">Menú de Opciones</h1>
+    <div class="list-group">
+      <a href="../registro/hombre.html" class="list-group-item list-group-item-action">Creación de Socio</a>
+      <a href="actualizacion.html" class="list-group-item list-group-item-action">Actualización</a>
+      <a href="pagos.html" class="list-group-item list-group-item-action">Pagos</a>
+      <a href="administracion_roles.html" class="list-group-item list-group-item-action">Administración de Roles</a>
+    </div>
+    <button id="logout-button" class="btn btn-danger mt-3">Cerrar Sesión</button>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+    import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyBSHQifVd2fqWJNPdMQJxLB_wtzBw2wsJI",
+      authDomain: "dbcdc-62a7b.firebaseapp.com",
+      databaseURL: "https://dbcdc-62a7b-default-rtdb.firebaseio.com",
+      projectId: "dbcdc-62a7b",
+      storageBucket: "dbcdc-62a7b.firebasestorage.app",
+      messagingSenderId: "523898093045",
+      appId: "1:523898093045:web:04dd818d3a44790edd74bc",
+      measurementId: "G-QL5HKLGG03"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // Handle logout button click
+    document.getElementById('logout-button').addEventListener('click', () => {
+      signOut(auth).then(() => {
+        // Sign-out successful.
+        alert('Sesión cerrada exitosamente');
+        window.location.href = '../index.html'; // Redirige a la página inicial
+      }).catch((error) => {
+        // An error happened.
+        alert(`Error al cerrar sesión: ${error.message}`);
+      });
+    });
+
+    // Auto logout after 10 minutes of inactivity
+    let inactivityTime = function () {
+      let time;
+      window.onload = resetTimer;
+      document.onmousemove = resetTimer;
+      document.onkeypress = resetTimer;
+
+      function logout() {
+        signOut(auth).then(() => {
+          alert('Sesión cerrada por inactividad');
+          window.location.href = '../index.html'; // Redirige a la página inicial
+        }).catch((error) => {
+          alert(`Error al cerrar sesión: ${error.message}`);
+        });
+      }
+
+      function resetTimer() {
+        clearTimeout(time);
+        time = setTimeout(logout, 600000); // 10 minutos en milisegundos
+      }
+    };
+
+    inactivityTime();
+  </script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
