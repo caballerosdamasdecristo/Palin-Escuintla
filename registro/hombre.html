@@ -44,8 +44,7 @@
             const primerApellido = document.getElementById('primerApellidoM').value;
             const segundoApellido = document.getElementById('segundoApellidoM').value;
             const apellidoCasada = document.getElementById('apellidoCasada').value;
-            const departamento = document.getElementById('departamento').value;
-            const municipio = document.getElementById('municipio').value;
+            const lugarDomicilio = document.getElementById('lugarDomicilioM').value;
             const direccion = document.getElementById('direccionM').value;
             const telefono = document.getElementById('telefonoM').value;
             const dpi = document.getElementById('dpiM').value;
@@ -135,34 +134,10 @@
             }
         }
 
-        function cargarMunicipios() {
-            const departamentos = {
-                "Guatemala": ["Guatemala", "Santa Catarina Pinula", "San José Pinula", "San José del Golfo", "Palencia", "Chinautla", "San Pedro Ayampuc", "Mixco", "San Pedro Sacatepéquez", "San Juan Sacatepéquez", "San Raymundo", "Chuarrancho", "Fraijanes", "Amatitlán", "Villa Nueva", "Villa Canales", "Petapa"],
-                "El Progreso": ["Guastatoya", "Morazán", "San Agustín Acasaguastlán", "San Cristóbal Acasaguastlán", "El Jícaro", "Sansare", "Sanarate", "San Antonio La Paz"]
-            };
-
-            const departamentoSelect = document.getElementById('departamento');
-            const municipioSelect = document.getElementById('municipio');
-            const selectedDepartamento = departamentoSelect.value;
-
-            municipioSelect.innerHTML = '<option value="">Seleccione un municipio</option>';
-
-            if (selectedDepartamento) {
-                const municipios = departamentos[selectedDepartamento];
-                municipios.forEach(municipio => {
-                    const option = document.createElement('option');
-                    option.value = municipio;
-                    option.textContent = municipio;
-                    municipioSelect.appendChild(option);
-                });
-            }
-        }
-
         window.onload = function() {
             cargarAnios();
             document.getElementById('dpiMSelect').addEventListener('change', mostrarCampoDPI);
             document.getElementById('genero').addEventListener('change', mostrarApellidoCasada);
-            document.getElementById('departamento').addEventListener('change', cargarMunicipios);
         };
     </script>
 </head>
@@ -197,18 +172,6 @@
 
                     <label for="apellidoCasada" id="apellidoCasadaLabel" style="display: none;">Apellido de Casada:</label>
                     <input type="text" id="apellidoCasada" maxlength="15" style="display: none;"><br>
-
-                    <label for="departamento" class="required">Departamento:</label>
-                    <select id="departamento" required>
-                        <option value="">Seleccione una opción</option>
-                        <option value="Guatemala">Guatemala</option>
-                        <option value="El Progreso">El Progreso</option>
-                    </select><br>
-
-                    <label for="municipio" class="required">Municipio:</label>
-                    <select id="municipio" required>
-                        <option value="">Seleccione un municipio</option>
-                    </select><br>
 
                     <label for="direccionM" class="required">Dirección:</label>
                     <input type="text" id="direccionM" required><br>
