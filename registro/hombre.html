@@ -144,7 +144,25 @@
             cargarAnios();
             document.getElementById('dpiHSelect').addEventListener('change', mostrarCampoDPI);
             document.getElementById('departamento').addEventListener('change', cargarMunicipios);
+            inactivityTime();
         };
+
+        function inactivityTime() {
+            let time;
+            window.onload = resetTimer;
+            document.onmousemove = resetTimer;
+            document.onkeypress = resetTimer;
+
+            function logout() {
+                alert('Sesión cerrada por inactividad');
+                window.location.href = '../index.html'; // Redirige a la página inicial
+            }
+
+            function resetTimer() {
+                clearTimeout(time);
+                time = setTimeout(logout, 600000); // 10 minutos en milisegundos
+            }
+        }
     </script>
 </head>
 <body>
@@ -203,6 +221,7 @@
                     </select><br>
 
                     <input type="text" id="dpiH" maxlength="25" pattern="[0-9]{1,25}" style="display: none;"><br>
+
                     <label for="edadH" class="required">Edad:</label>
                     <input type="text" id="edadH" maxlength="2" pattern="[0-9]{2}" required><br>
 
