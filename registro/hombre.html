@@ -134,6 +134,13 @@
                 <h2>Formulario Socia Devota</h2>
                 <p style="color: red;">Campo obligatorio *</p>
                 <form id="formulario-socio" onsubmit="return validarFormulario(event)">
+                    <label for="genero" class="required">Género:</label>
+                    <select id="genero" required>
+                        <option value="">Seleccione una opción</option>
+                        <option value="masculino">Masculino</option>
+                        <option value="femenino">Femenino</option>
+                    </select><br>
+
                     <label for="primerNombreM" class="required">Primer Nombre:</label>
                     <input type="text" id="primerNombreM" maxlength="15" required><br>
 
