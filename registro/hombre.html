@@ -1,0 +1,280 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Mujer</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/styles_socio.css">
+    <style>
+        .required::after {
+            content: " *";
+            color: red;
+        }
+        .date-input {
+            width: 100px;
+        }
+    </style>
+    <script>
+        function cargarAnios() {
+            const anioActual = new Date().getFullYear();
+            const selectAnios = document.getElementById('anios');
+
+            const opcionSeleccion = document.createElement('option');
+            opcionSeleccion.value = "";
+            opcionSeleccion.textContent = "Seleccione una opción";
+            selectAnios.appendChild(opcionSeleccion);
+
+            for (let anio = 2000; anio <= anioActual; anio++) {
+                const opcion = document.createElement('option');
+                opcion.value = anio;
+                opcion.textContent = anio;
+                selectAnios.appendChild(opcion);
+            }
+        }
+
+        function limpiarFormulario() {
+            document.getElementById('formulario-socio').reset();
+        }
+
+        function validarFormulario(event) {
+            const nombrePattern = /^[A-Za-z]+$/;
+            const numeroPattern = /^[0-9]+$/;
+
+            const primerNombre = document.getElementById('primerNombreM').value;
+            const segundoNombre = document.getElementById('segundoNombreM').value;
+            const tercerNombre = document.getElementById('tercerNombreM').value;
+            const primerApellido = document.getElementById('primerApellidoM').value;
+            const segundoApellido = document.getElementById('segundoApellidoM').value;
+            const apellidoCasada = document.getElementById('apellidoCasada').value;
+            const departamento = document.getElementById('departamento').value;
+            const municipio = document.getElementById('municipio').value;
+            const direccion = document.getElementById('direccionM').value;
+            const telefono = document.getElementById('telefonoM').value;
+            const dpi = document.getElementById('dpiM').value;
+            const hombroCarga = document.getElementById('hombroCargaM').value;
+            const anioIngreso = document.getElementById('anios').value;
+            const edad = document.getElementById('edadM').value;
+            const fechaNacimiento = document.getElementById('fechaNacimiento').value;
+
+            if (!nombrePattern.test(primerNombre)) {
+                alert('Caracteres inválidos en Primer Nombre');
+                event.preventDefault();
+                return false;
+            }
+            if (!nombrePattern.test(segundoNombre)) {
+                alert('Caracteres inválidos en Segundo Nombre');
+                event.preventDefault();
+                return false;
+            }
+            if (tercerNombre && !nombrePattern.test(tercerNombre)) {
+                alert('Caracteres inválidos en Tercer Nombre');
+                event.preventDefault();
+                return false;
+            }
+            if (!nombrePattern.test(primerApellido)) {
+                alert('Caracteres inválidos en Primer Apellido');
+                event.preventDefault();
+                return false;
+            }
+            if (segundoApellido && !nombrePattern.test(segundoApellido)) {
+                alert('Caracteres inválidos en Segundo Apellido');
+                event.preventDefault();
+                return false;
+            }
+            if (apellidoCasada && !nombrePattern.test(apellidoCasada)) {
+                alert('Caracteres inválidos en Apellido de Casada');
+                event.preventDefault();
+                return false;
+            }
+            if (!numeroPattern.test(telefono)) {
+                alert('Caracteres inválidos en Teléfono');
+                event.preventDefault();
+                return false;
+            }
+            if (document.getElementById('dpiM').style.display !== 'none' && !numeroPattern.test(dpi)) {
+                alert('Caracteres inválidos en DPI');
+                event.preventDefault();
+                return false;
+            }
+            if (hombroCarga === "") {
+                alert('Por favor, seleccione una opción válida para Hombro que Carga');
+                event.preventDefault();
+                return false;
+            }
+            if (anioIngreso === "") {
+                alert('Por favor, seleccione una opción válida para Año de ingreso');
+                event.preventDefault();
+                return false;
+            }
+            if (!numeroPattern.test(edad) || edad.length !== 2) {
+                alert('Edad inválida. Debe ser un número de 2 dígitos.');
+                event.preventDefault();
+                return false;
+            }
+
+            return true;
+        }
+
+        function mostrarCampoDPI() {
+            const dpiSelect = document.getElementById('dpiMSelect');
+            const dpiInput = document.getElementById('dpiM');
+            if (dpiSelect.value === 'ingresar') {
+                dpiInput.style.display = 'block';
+            } else {
+                dpiInput.style.display = 'none';
+            }
+        }
+
+        function mostrarApellidoCasada() {
+            const generoSelect = document.getElementById('genero');
+            const apellidoCasadaLabel = document.getElementById('apellidoCasadaLabel');
+            const apellidoCasadaInput = document.getElementById('apellidoCasada');
+            if (generoSelect.value === 'femenino') {
+                apellidoCasadaLabel.style.display = 'block';
+                apellidoCasadaInput.style.display = 'block';
+            } else {
+                apellidoCasadaLabel.style.display = 'none';
+                apellidoCasadaInput.style.display = 'none';
+            }
+        }
+
+        function cargarMunicipios() {
+            const departamentos = {
+                "Guatemala": ["Guatemala", "Santa Catarina Pinula", "San José Pinula", "San José del Golfo", "Palencia", "Chinautla", "San Pedro Ayampuc", "Mixco", "San Pedro Sacatepéquez", "San Juan Sacatepéquez", "San Raymundo", "Chuarrancho", "Fraijanes", "Amatitlán", "Villa Nueva", "Villa Canales", "Petapa"],
+                "El Progreso": ["Guastatoya", "Morazán", "San Agustín Acasaguastlán", "San Cristóbal Acasaguastlán", "El Jícaro", "Sansare", "Sanarate", "San Antonio La Paz"]
+            };
+
+            const departamentoSelect = document.getElementById('departamento');
+            const municipioSelect = document.getElementById('municipio');
+            const selectedDepartamento = departamentoSelect.value;
+
+            municipioSelect.innerHTML = '<option value="">Seleccione un municipio</option>';
+
+            if (selectedDepartamento) {
+                const municipios = departamentos[selectedDepartamento];
+                municipios.forEach(municipio => {
+                    const option = document.createElement('option');
+                    option.value = municipio;
+                    option.textContent = municipio;
+                    municipioSelect.appendChild(option);
+                });
+            }
+        }
+
+        function calcularEdad() {
+            const fechaNacimiento = document.getElementById('fechaNacimiento').value;
+            const [dia, mes, anio] = fechaNacimiento.split('/');
+            const fechaNac = new Date(anio, mes - 1, dia);
+            const hoy = new Date();
+            let edad = hoy.getFullYear() - fechaNac.getFullYear();
+            const mesDiferencia = hoy.getMonth() - fechaNac.getMonth();
+            if (mesDiferencia < 0 || (mesDiferencia === 0 && hoy.getDate() < fechaNac.getDate())) {
+                edad--;
+            }
+            document.getElementById('edadM').value = edad; // Añadí esta línea para mostrar la edad calculada
+        }
+        
+        window.onload = function() {
+            cargarAnios();
+            document.getElementById('dpiMSelect').addEventListener('change', mostrarCampoDPI);
+            document.getElementById('genero').addEventListener('change', mostrarApellidoCasada);
+            document.getElementById('departamento').addEventListener('change', cargarMunicipios);
+            document.getElementById('fechaNacimiento').addEventListener('input', calcularEdad);
+        };
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h2>Formulario Socia Devota</h2>
+                <p style="color: red;">Campo obligatorio *</p>
+                <form id="formulario-socio" onsubmit="return validarFormulario(event)">
+                    <label for="genero" class="required">Género:</label>
+                    <select id="genero" required>
+                        <option value="">Seleccione una opción</option>
+                        <option value="masculino">Masculino</option>
+                        <option value="femenino">Femenino</option>
+                    </select><br>
+
+                    <label for="primerNombreM" class="required">Primer Nombre:</label>
+                    <input type="text" id="primerNombreM" maxlength="15" required><br>
+
+                    <label for="segundoNombreM">Segundo Nombre:</label>
+                    <input type="text" id="segundoNombreM" maxlength="15"><br>
+
+                    <label for="tercerNombreM">Tercer Nombre:</label>
+                    <input type="text" id="tercerNombreM" maxlength="15"><br>
+
+                    <label for="primerApellidoM" class="required">Primer Apellido:</label>
+                    <input type="text" id="primerApellidoM" maxlength="15" required><br>
+
+                    <label for="segundoApellidoM">Segundo Apellido:</label>
+                    <input type="text" id="segundoApellidoM" maxlength="15"><br>
+
+                    <label for="apellidoCasada" id="apellidoCasadaLabel" style="display: none;">Apellido de Casada:</label>
+                    <input type="text" id="apellidoCasada" maxlength="15" style="display: none;"><br>
+                   
+                    <label for="departamento" class="required">Departamento:</label>
+                    <select id="departamento" required>
+                        <option value="">Seleccione una opción</option>
+                        <option value="Guatemala">Guatemala</option>
+                        <option value="El Progreso">El Progreso</option>
+                    </select><br>
+
+                    <label for="municipio" class="required">Municipio:</label>
+                    <select id="municipio" required>
+                        <option value="">Seleccione un municipio</option>
+                    </select><br>
+
+                    <label for="direccionM" class="required">Dirección:</label>
+                    <input type="text" id="direccionM" required><br>
+
+                    <label for="telefonoM" class="required">Teléfono:</label>
+                    <input type="tel" id="telefonoM" maxlength="8" pattern="[0-9]{8}" required><br>
+
+                    <label for="dpiMSelect" class="required">DPI:</label>
+                    <select id="dpiMSelect" required>
+                        <option value="">Seleccione una opción</option>
+                        <option value="niño">Niño</option>
+                        <option value="ingresar">Ingresar DPI</option>
+                    </select><br>
+
+                    <input type="text" id="dpiM" maxlength="25" pattern="[0-9]{1,25}" style="display: none;"><br>
+
+                    <label for="fechaNacimiento" class="required">Fecha de Nacimiento:</label>
+                    <input type="text" id="fechaNacimiento" class="date-input" placeholder="DD/MM/AAAA" required><br>
+
+                    <label for="edadM" class="required">Edad:</label>
+                    <input type="text" id="edadM" maxlength="2" pattern="[0-9]{2}" required><br>
+
+                    <label for="alturaM" class="required">Altura Hombro:</label>
+                    <input type="text" id="alturaM" maxlength="4" pattern="1\.[0-9]{2}" required><br>
+
+                    <label for="hombroCargaM" class="required">Hombro que Carga:</label>
+                    <select id="hombroCargaM" required>
+                        <option value="">Seleccione una opción</option>
+                        <option value="izquierdo">Izquierdo</option>
+                        <option value="derecho">Derecho</option>
+                    </select><br>
+
+                    <label for="anios" class="required">Año de ingreso:</label>
+                    <select id="anios" required></select><br>
+
+                    <label for="fotoM">Subir Fotografía:</label>
+                    <input type="file" id="fotoM" accept="image/*" capture="camera"><br>
+
+                    <button type="submit">Enviar</button>
+                </form>
+                <button onclick="window.location.href='../menu/menu_opciones.html'">Regresar</button>
+                <button onclick="window.location.href='../index.html'" class="btn btn-danger">Cerrar Sesión</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
