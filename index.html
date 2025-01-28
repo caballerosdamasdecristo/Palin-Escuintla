@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página de Inicio de Sesión</title>
+  <link rel="stylesheet" href="/css/styless.css"> <!-- Enlace al archivo CSS -->
+  <script src="/js/app_login.js" defer></script> <!-- Enlace al archivo JS -->
+</head>
+<body>
+  <!-- Contenedor principal -->
+  <div class="login-container">
+    <h1>Inicio de Sesión</h1>
+    <form id="login-form">
+      <input type="text" id="usuario" placeholder="Usuario" required>
+      <div class="password-container">
+        <input type="password" id="contrasena" placeholder="Contraseña" required>
+        <span id="toggle-password" style="cursor: pointer;">👁️</span>
+      </div>
+      <button type="submit">Iniciar Sesión</button>
+    </form>
+    <div class="footer">
+      <p>¿Olvidaste tu contraseña? <a href="registro/recuperar_contrasena.html">Recupérala aquí</a></p>
+      <p>© 2025 Página Caballeros Damas de Cristo</p>
+    </div>
+  </div>
+</body>
