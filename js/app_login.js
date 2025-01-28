@@ -36,6 +36,9 @@ document.addEventListener('DOMContentLoaded', () => {
     passwordField.setAttribute('type', type);
 
     // Change icon
-    togglePassword.textContent = type === 'password' ? '👁️‍🗨️' : '🙈';
+    togglePassword.textContent = '👀';
+    setTimeout((5000) => {
+      togglePassword.textContent = '👁️';
+    }, 500);
   });
 });
