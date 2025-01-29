@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Página de Inicio de Sesión</title>
-  <link rel="stylesheet" href="/css/styless.css"> <!-- Enlace al archivo CSS -->
+  <link rel="stylesheet" href="css/styless.css"> <!-- Enlace al archivo CSS -->
   <!-- Importar módulos de Firebase -->
   <script type="module">
-    import { firebaseConfig } from './js/firebaseConfig.js';
+    import { firebaseConfig } from 'js/firebaseConfig.js';
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
     import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 
