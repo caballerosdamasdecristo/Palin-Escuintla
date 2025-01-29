@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Change icon
     togglePassword.textContent = '👀';
-    setTimeout((5000) => {
+    setTimeout(() => {
       togglePassword.textContent = '👁️';
     }, 500);
   });
