@@ -41,6 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
     togglePassword.textContent = type === 'password' ? '👁️' : '😉';
     setTimeout(() => {
       togglePassword.textContent = '👁️';
-    }, 500);
+    }, 5000);
   });
 });
