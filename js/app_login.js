@@ -30,13 +30,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Alternar visibilidad de contraseña y efecto de guiño
   const togglePassword = document.getElementById('toggle-password');
+  const passwordField = document.getElementById('contrasena');
+
   togglePassword.addEventListener('click', () => {
-    const passwordField = document.getElementById('contrasena');
+    // Toggle the type attribute
     const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
     passwordField.setAttribute('type', type);
 
-    // efecto guiño
-    togglePassword.textContent = '😉';
+    // Toggle the eye icon
+    togglePassword.textContent = type === 'password' ? '👁️' : '😉';
     setTimeout(() => {
       togglePassword.textContent = '👁️';
     }, 500);
