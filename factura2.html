@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario con Autenticación</title>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <style>
+    /* Estilizado básico */
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 20px;
+    }
+    form {
+      display: none; /* Formulario oculto hasta autenticación */
+    }
+  </style>
+</head>
+<body>
+  <h1>Formulario con Autenticación</h1>
+  <div id="g_id_onload"
+       data-client_id="700008130772-o3k7c3ehs2db7vuhotg3tdkbsh7h5sqt.apps.googleusercontent.com"
+       data-callback="handleCredentialResponse"
+       data-auto_prompt="false">
+  </div>
+  <div class="g_id_signin"
+       data-type="standard"
+       data-shape="rectangular"
+       data-theme="outline"
+       data-text="sign_in_with"
+       data-size="large"
+       data-logo_alignment="left">
+  </div>
+
+  <form id="formulario">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" required>
+    <label for="correo">Correo:</label>
+    <input type="email" id="correo" name="correo" required>
+    <button type="submit">Enviar</button>
+  </form>
+
+  <div id="mensaje" style="margin-top: 20px; font-weight: bold;"></div>
+
+  <script>
+    let token = null;
+
+    // Manejar la autenticación
+    function handleCredentialResponse(response) {
+      token = response.credential;
+      document.getElementById("formulario").style.display = "block";
+      console.log("Usuario autenticado:", token);
+    }
+
+    // Enviar datos al Apps Script
+    document.getElementById("formulario").addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const mensajeDiv = document.getElementById("mensaje");
+      const data = {
+        nombre: document.getElementById("nombre").value,
+        correo: document.getElementById("correo").value,
+      };
+
+      if (!token) {
+        mensajeDiv.style.color = "red";
+        mensajeDiv.textContent = "Por favor, inicia sesión primero.";
+        return;
+      }
+
+      try {
+        const response = await fetch("https://script.google.com/macros/s/AKfycbwWOsrCPXxUlDTJ7VexoA5h8dSOcDVbBCGFbjVOmUdSCVBqm8QmnZPxV-cdbRhWHQtc/exec", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+          },
+          body: JSON.stringify(data),
+        });
+
+        if (response.ok) {
+          const result = await response.json();
+          mensajeDiv.style.color = "green";
+          mensajeDiv.textContent = result.message;
+        } else {
+          mensajeDiv.style.color = "red";
+          mensajeDiv.textContent = "Error al conectar con el servidor.";
+        }
+      } catch (error) {
+        mensajeDiv.style.color = "red";
+        mensajeDiv.textContent = "Error: " + error.message;
+      }
+    });
+  </script>
+</body>
+</html>
